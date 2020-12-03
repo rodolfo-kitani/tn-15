@@ -38,6 +38,26 @@ function createPhoneNumber(numbers){
     for (let num of numbers) {
         phoneNumber += num;
     }
-    return phoneNumber *2;
+    function formatPhoneNumber(phoneNumber){ // transform a array or a number in a phoneNumber formated string.
+        let out = "";
+        for (let i = 0; i < phoneNumber.length; i++) {
+            if( i === 0 ) { // add the first (
+                out += "(";
+                out += phoneNumber[i];
+            }
+            else if ( i === 2 ) { // add the secound (
+                out += phoneNumber[i];
+                out += ") ";
+            }
+            else if ( i === 5) { // add the "-" to separate the last 3 numbers
+                out += phoneNumber[i];
+                out += "-";
+            } else {
+                out += phoneNumber[i];
+            }
+        }
+        return out;
+    }
+    return formatPhoneNumber(phoneNumber);
 }
 console.log(createPhoneNumber([1, 2, 3, 4, 5, 6, 7, 8, 9, 0]));
