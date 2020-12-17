@@ -38,23 +38,21 @@ function dividedBy() {} // /
 //
 */
 
-function seven (){
-    return 7;
-}
-function plus (num1) {
-    return function(num2) {
-        return num1 + num2
-    }
-}
-function oneOne (){
-    return 1;
-}
-let conta = seven(plus(oneOne()));
+let seven = 
+    operation =>
+        number =>
+            operation (7, number);
+
+let one = 
+    operation =>
+        number =>
+            operation (1, number);
+
+let plus = (a, b) => a * b;
+
+//let conta = seven(plus(oneOne()));
 console.log(`Número: ${seven()}`)
 console.log(`Operação: ${plus()}`)
-console.log(`Número2: ${oneOne()}`)
+console.log(`Número2: ${one()}`)
 console.log(`Resultado: ${conta}`)
-console.log(`${seven()} ${plus()} ${oneOne()} = ${conta}`)
-
-
-
+console.log(`${seven()} ${plus()} ${one()} = ${conta}`)
