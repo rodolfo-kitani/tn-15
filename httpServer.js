@@ -1,6 +1,7 @@
 //importa { createServer} from 'http';
 //import htto from 'http';
 const http = require('http');
+const products = require('./products');
 const port = 8080;
 const ip = 'localhost';
 
@@ -34,7 +35,10 @@ function getError(response) {
 
 function getProdutos(response) {
     response.writeHead(200, { "Content-type": "text/plain" });
-    response.end("Produtos")    
+
+    const stringProducts = JSON.stringify(products)
+
+    response.end("Produtos: " +  stringProducts)    
 }
 
 function defaultRoute(response) {
